@@ -43,6 +43,9 @@ function app_dependencies() {
   unset GIT_DIR
 
   cd $build_path
+  output_section "Configuring git to use HTTPS..."
+  git config --global url."https://".insteadOf git://
+
   output_section "Fetching app dependencies with mix"
   mix deps.get --only $MIX_ENV || exit 1
 
