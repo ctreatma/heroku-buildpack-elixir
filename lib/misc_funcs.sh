@@ -56,16 +56,6 @@ function export_config_vars() {
   done
 }
 
-function export_mix_env() {
-  if [ -d $env_path ] && [ -f $env_path/MIX_ENV ]; then
-    export MIX_ENV=$(cat $env_path/MIX_ENV)
-  else
-    export MIX_ENV=prod
-  fi
-
-  output_line "* MIX_ENV=${MIX_ENV}"
-}
-
 function check_stack() {
   if [ "${STACK}" = "cedar" ]; then
     echo "ERROR: cedar stack is not supported, upgrade to cedar-14"
